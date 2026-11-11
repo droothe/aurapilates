@@ -9,15 +9,21 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Logo } from "@/components/site/Logo";
 
-const schema = z.object({
-  email: z.string().trim().email({ message: "Geçerli bir e-posta girin" }).max(255),
+const emailSchema = z.string().trim().email({ message: "Geçerli bir e-posta girin" }).max(255);
+const signInSchema = z.object({
+  email: emailSchema,
+  password: z.string().min(1, { message: "Şifre girin" }).max(72),
+});
+const signUpSchema = z.object({
+  email: emailSchema,
   password: z.string().min(8, { message: "Şifre en az 8 karakter olmalı" }).max(72),
 });
+const demoCredentials = { email: "admin@adrespilates.com", password: "123456" };
 
 export function AdminLogin() {
   const [mode, setMode] = useState<"signin" | "signup">("signin");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState(demoCredentials.email);
+  const [password, setPassword] = useState(demoCredentials.password);
   const [error, setError] = useState<string | null>(null);
   const [info, setInfo] = useState<string | null>(null);
   const [pending, setPending] = useState(false);
@@ -26,7 +32,7 @@ export function AdminLogin() {
     e.preventDefault();
     setError(null);
     setInfo(null);
-    const parsed = schema.safeParse({ email, password });
+    const parsed = (mode === "signin" ? signInSchema : signUpSchema).safeParse({ email, password });
     if (!parsed.success) {
       setError(parsed.error.issues[0]?.message ?? "Bilgileri kontrol edin");
       return;
@@ -44,6 +50,22 @@ export function AdminLogin() {
         if (error) setError(error.message);
         else if (!data.session) setInfo("Hesabınız oluşturuldu. Giriş yapmadan önce e-postanıza gelen bağlantıyla adresinizi onaylayın.");
       }
+    } catch {
+      toast.error("Bir sorun oluştu, lütfen tekrar deneyin.");
+    } finally {
+      setPending(false);
+    }
+  }
+
+  async function onDemoLogin() {
+    setError(null);
+    setInfo(null);
+    setEmail(demoCredentials.email);
+    setPassword(demoCredentials.password);
+    setPending(true);
+    try {
+      const { error } = await supabase.auth.signInWithPassword(demoCredentials);
+      if (error) setError(error.message === "Invalid login credentials" ? "Demo hesabı bulunamadı veya bilgileri hatalı" : error.message);
     } catch {
       toast.error("Bir sorun oluştu, lütfen tekrar deneyin.");
     } finally {
@@ -86,6 +108,12 @@ export function AdminLogin() {
               {mode === "signin" ? "Giriş Yap" : "Hesap Oluştur"}
             </Button>
           </form>
+          {mode === "signin" && (
+            <Button type="button" variant="soft" size="xl" className="mt-3 w-full" onClick={onDemoLogin} disabled={pending}>
+              {pending && <Loader2 className="animate-spin" />}
+              Hızlı Demo Girişi
+            </Button>
+          )}
           <button
             type="button"
             onClick={() => {

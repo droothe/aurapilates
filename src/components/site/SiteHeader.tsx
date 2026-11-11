@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { Menu, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -58,6 +59,12 @@ export function SiteHeader({ onNavigate }: { onNavigate: (item: NavItem) => void
           <Button variant="hero" className="hidden sm:inline-flex" onClick={() => open()}>
             Eğitime Başvur
           </Button>
+          <Button asChild variant="soft" size="sm" className="h-10 px-3">
+            <Link to="/admin" aria-label="Yönetici Girişi">
+              <ShieldCheck className="!size-4" />
+              <span className="hidden sm:inline">Yönetici Girişi</span>
+            </Link>
+          </Button>
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="soft" size="icon" className="h-11 w-11 lg:hidden" aria-label="Menüyü aç">
@@ -97,6 +104,11 @@ export function SiteHeader({ onNavigate }: { onNavigate: (item: NavItem) => void
                   }}
                 >
                   Eğitime Başvur
+                </Button>
+                <Button asChild variant="soft" size="xl" className="mt-2 w-full">
+                  <Link to="/admin" onClick={() => setMenuOpen(false)}>
+                    <ShieldCheck /> Yönetici Girişi
+                  </Link>
                 </Button>
               </div>
             </SheetContent>

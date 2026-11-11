@@ -1,4 +1,5 @@
 import { ArrowRight, ArrowUpRight, Award, CalendarDays, Check, Clock, Instagram, MapPin, Sparkles, Users } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -360,6 +361,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 text-sm text-muted-foreground sm:flex-row lg:px-8">
         <p>© {new Date().getFullYear()} Adres Pilates · Kübra Çay</p>
         <p>Reformer · Mat · Trapeze Table Eğitimleri</p>
+        <Link to="/admin" className="transition-colors hover:text-primary">Yönetim Paneli</Link>
       </div>
     </footer>
   );
