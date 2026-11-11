@@ -37,7 +37,7 @@ export function SiteHeader({ onNavigate }: { onNavigate: (item: NavItem) => void
       )}
     >
       <div className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 lg:flex lg:justify-between lg:px-8">
-        <button type="button" onClick={() => onNavigate(navItems[0])} className="min-w-0 text-left" aria-label="Adres Pilates ana sayfa">
+        <button type="button" onClick={() => onNavigate(navItems[0]!)} className="min-w-0 text-left" aria-label="Adres Pilates ana sayfa">
           <Logo />
         </button>
 

@@ -29,7 +29,7 @@ function SectionHeading({ eyebrow, title, text, className }: { eyebrow: string; 
 }
 
 /* ---------------- Hero ---------------- */
-export function Hero({ next, onCalendar }: { next?: PublicTraining; onCalendar: () => void }) {
+export function Hero({ next, onCalendar }: { next?: PublicTraining | undefined; onCalendar: () => void }) {
   const { open } = useApply();
   return (
     <section id="home" className="relative overflow-hidden bg-hero pt-28 pb-20 sm:pt-36 lg:pb-28">

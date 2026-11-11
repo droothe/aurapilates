@@ -253,7 +253,7 @@ export function TrainingsPanel() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="t-dur">Süre (gün)</Label>
-              <Input id="t-dur" type="number" min={1} max={30} value={String(form.duration_days)} onChange={(e) => set("duration_days", e.target.value)} />
+              <Input id="t-dur" type="number" min={1} max={30} value={String(form.duration_days)} onChange={(e) => set("duration_days", Number(e.target.value))} />
             </div>
             <div className="space-y-2">
               <Label htmlFor="t-city">Şehir</Label>

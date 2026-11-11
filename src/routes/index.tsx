@@ -34,7 +34,9 @@ function Index() {
   const { data: trainings } = useSuspenseQuery(trainingsQuery);
   const [tab, setTab] = useState("egitmenlik");
 
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const onNavigate = (item: NavItem) => {
     if (item.tab) setTab(item.tab);

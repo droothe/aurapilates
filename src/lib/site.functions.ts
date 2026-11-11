@@ -51,7 +51,7 @@ export const listTrainings = createServerFn({ method: "GET" }).handler(async () 
 });
 
 export const submitApplication = createServerFn({ method: "POST" })
-  .inputValidator((input: unknown) => applicationSchema.parse(input))
+  .validator((input: unknown) => applicationSchema.parse(input))
   .handler(async ({ data }) => {
     const { error } = await publicClient().from("applications").insert({
       full_name: data.full_name,
