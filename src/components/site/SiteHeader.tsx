@@ -60,9 +60,9 @@ export function SiteHeader({ onNavigate }: { onNavigate: (item: NavItem) => void
             Eğitime Başvur
           </Button>
           <Button asChild variant="soft" size="sm" className="h-10 px-3">
-            <Link to="/admin" aria-label="Yönetici Girişi">
+            <Link to="/admin" aria-label="Yönetim Paneli">
               <ShieldCheck className="!size-4" />
-              <span className="hidden sm:inline">Yönetici Girişi</span>
+              <span className="hidden sm:inline">Yönetim Paneli</span>
             </Link>
           </Button>
           <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
@@ -107,7 +107,7 @@ export function SiteHeader({ onNavigate }: { onNavigate: (item: NavItem) => void
                 </Button>
                 <Button asChild variant="soft" size="xl" className="mt-2 w-full">
                   <Link to="/admin" onClick={() => setMenuOpen(false)}>
-                    <ShieldCheck /> Yönetici Girişi
+                    <ShieldCheck /> Yönetim Paneli
                   </Link>
                 </Button>
               </div>
