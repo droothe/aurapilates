@@ -14,16 +14,136 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      applications: {
+        Row: {
+          course: string
+          created_at: string
+          full_name: string
+          id: string
+          notes: string | null
+          phone: string
+          status: Database["public"]["Enums"]["application_status"]
+          training_id: string | null
+        }
+        Insert: {
+          course: string
+          created_at?: string
+          full_name: string
+          id?: string
+          notes?: string | null
+          phone: string
+          status?: Database["public"]["Enums"]["application_status"]
+          training_id?: string | null
+        }
+        Update: {
+          course?: string
+          created_at?: string
+          full_name?: string
+          id?: string
+          notes?: string | null
+          phone?: string
+          status?: Database["public"]["Enums"]["application_status"]
+          training_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "applications_training_id_fkey"
+            columns: ["training_id"]
+            isOneToOne: false
+            referencedRelation: "trainings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      trainings: {
+        Row: {
+          category: string
+          city: string
+          code: string
+          created_at: string
+          date_label: string
+          duration_days: number
+          early_bird: boolean
+          format: string
+          id: string
+          month_label: string
+          start_date: string
+          status: Database["public"]["Enums"]["training_status"]
+          subtitle: string | null
+          updated_at: string
+          venue: string | null
+        }
+        Insert: {
+          category?: string
+          city?: string
+          code: string
+          created_at?: string
+          date_label: string
+          duration_days?: number
+          early_bird?: boolean
+          format?: string
+          id?: string
+          month_label: string
+          start_date: string
+          status?: Database["public"]["Enums"]["training_status"]
+          subtitle?: string | null
+          updated_at?: string
+          venue?: string | null
+        }
+        Update: {
+          category?: string
+          city?: string
+          code?: string
+          created_at?: string
+          date_label?: string
+          duration_days?: number
+          early_bird?: boolean
+          format?: string
+          id?: string
+          month_label?: string
+          start_date?: string
+          status?: Database["public"]["Enums"]["training_status"]
+          subtitle?: string | null
+          updated_at?: string
+          venue?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "user"
+      application_status: "new" | "contacted" | "enrolled" | "cancelled"
+      training_status: "open" | "limited" | "full" | "closed"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +270,10 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "user"],
+      application_status: ["new", "contacted", "enrolled", "cancelled"],
+      training_status: ["open", "limited", "full", "closed"],
+    },
   },
 } as const
