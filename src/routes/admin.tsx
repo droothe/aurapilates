@@ -4,8 +4,8 @@ import { AdminReadOnlyDashboard } from "@/components/admin/AdminReadOnlyDashboar
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "Demo Yönetim Paneli — Adres Pilates" },
-      { name: "description", content: "Adres Pilates salt okunur demo yönetim paneli." },
+      { title: "Yönetim Paneli — Aura Pilates" },
+      { name: "description", content: "Aura Pilates demo yönetim paneli." },
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),

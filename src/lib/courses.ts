@@ -14,7 +14,7 @@ export const instructorCourses: Course[] = [
     tagline: "MAT 1 + MAT 2 modülleri",
     duration: "5 gün · Yüz yüze",
     level: "Başlangıç → İleri",
-    certificate: "Code Pilates eğitmenlik sertifikası",
+    certificate: "Eğitmenlik programı katılım belgesi",
     features: [
       "Hareket temelleri ve anatomi",
       "Klasik mat repertuvarı",
@@ -27,7 +27,7 @@ export const instructorCourses: Course[] = [
     tagline: "REFORMER 1 + REFORMER 2 modülleri",
     duration: "4 gün · Yüz yüze",
     level: "Temel → İleri",
-    certificate: "Code Pilates eğitmenlik sertifikası",
+    certificate: "Eğitmenlik programı katılım belgesi",
     features: [
       "Alet güvenliği ve yay ayarları",
       "Temel ve ileri reformer akışları",
@@ -41,7 +41,7 @@ export const instructorCourses: Course[] = [
     tagline: "TRAPEZE TABLE 1-2-3",
     duration: "3 gün · Yüz yüze",
     level: "İleri seviye",
-    certificate: "Code Pilates uzmanlık sertifikası",
+    certificate: "Uzmanlık programı katılım belgesi",
     features: [
       "Cadillac / Trapeze Table repertuvarı",
       "Push-through, roll-back ve yay çalışmaları",

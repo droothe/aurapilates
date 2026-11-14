@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Adres Pilates design system — warm beige, clean white, terracotta accent. */
+/* Aura Pilates design system — warm beige, clean white, terracotta accent. */
 
 @theme inline {
   --font-display: "Fraunces", Georgia, serif;

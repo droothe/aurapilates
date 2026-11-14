@@ -1,4 +1,17 @@
-import { ArrowRight, ArrowUpRight, Award, CalendarDays, Check, Clock, Instagram, MapPin, Sparkles, Users } from "lucide-react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  Award,
+  CalendarDays,
+  Check,
+  Clock,
+  Instagram,
+  Mail,
+  MapPin,
+  Phone,
+  Sparkles,
+  Users,
+} from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -37,13 +50,13 @@ export function Hero({ next, onCalendar }: { next?: PublicTraining | undefined; 
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
         <div className="animate-fade-up">
           <Badge variant="soft" className="gap-2 px-3.5 py-1.5 text-xs font-medium">
-            <Sparkles className="h-3.5 w-3.5 text-primary" /> Code Pilates onaylı eğitmenlik programları
+            <Sparkles className="h-3.5 w-3.5 text-primary" /> Uluslararası standartlarda eğitmenlik programları
           </Badge>
           <h1 className="mt-7 text-[2.6rem] leading-[1.02] text-foreground sm:text-6xl lg:text-[4.4rem]">
             Profesyonel Pilates Eğitmeni Olma <em className="font-normal italic text-primary">Yolculuğunuza</em> Başlayın
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            Kübra Çay öncülüğünde Mat, Reformer ve Trapeze Table uzmanlık eğitimleri.
+            Selin Yılmaz eğitmenliğinde Mat, Reformer ve Trapeze Table programları.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Button variant="hero" size="xl" onClick={onCalendar}>
@@ -270,21 +283,21 @@ export function AboutSection() {
         <div>
           <SectionHeading
             eyebrow="Hakkımızda"
-            title={<>Kübra Çay & <em className="italic text-primary">Adres Pilates</em></>}
+            title={<>Selin Yılmaz & <em className="italic text-primary">Aura Pilates</em></>}
           />
           <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
             <p>
-              Adres Pilates, Kübra Çay tarafından kurulan; spor ve egzersiz eğitimini bilimsel temelli, uygulamalı ve samimi bir
-              yaklaşımla buluşturan bir pilates ve eğitmenlik akademisidir.
+              Aura Pilates, hareket ve egzersiz eğitimini uygulamalı, güncel ve samimi bir yaklaşımla buluşturan kurgusal bir
+              pilates ve eğitmenlik akademisidir.
             </p>
             <p>
-              Code Pilates bünyesinde Master Trainer & Educator olarak Mat, Reformer ve Trapeze Table eğitimleri veren Kübra Çay,
-              yeni eğitmenlerin sahaya güvenle adım atmasını hedefler.
+              Selin Yılmaz, Mat, Reformer ve Trapeze Table programlarında katılımcıların kendi pratiklerini geliştirmesine ve
+              eğitmenlik becerilerini güvenle pekiştirmesine rehberlik eder.
             </p>
           </div>
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
             {[
-              { icon: Award, t: "Master Trainer", d: "Code Pilates Educator" },
+              { icon: Award, t: "Eğitmen", d: "Mat · Reformer · Trapeze Table" },
               { icon: Users, t: "Küçük gruplar", d: "Birebir ilgi" },
               { icon: MapPin, t: "İstanbul", d: "Yüz yüze eğitim" },
             ].map(({ icon: Icon, t, d }) => (
@@ -316,22 +329,24 @@ export function ContactSection() {
                 Bir sonraki adımınız <em className="italic text-sand">burada</em> başlıyor.
               </h2>
               <p className="mt-5 max-w-lg text-lg text-ink-foreground/75">
-                Eğitimler, kontenjanlar ve ders paketleri hakkında bilgi almak için başvuru formunu doldurun ya da Instagram'dan yazın.
+                Eğitimler, kontenjanlar ve ders paketleri hakkında bilgi almak için başvuru formunu doldurun ya da demo iletişim
+                kanallarını kullanın.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <Button variant="hero" size="xl" onClick={() => open()}>Eğitime Başvur</Button>
                 <Button asChild variant="soft" size="xl">
-                  <a href="https://instagram.com/adrespilates" target="_blank" rel="noreferrer">
-                    <Instagram /> @adrespilates
+                  <a href="mailto:info@aurapilates.example">
+                    <Mail /> Demo iletişim
                   </a>
                 </Button>
               </div>
             </div>
             <ul className="space-y-4">
               {[
-                { icon: MapPin, t: "Konum", d: "İstanbul" },
-                { icon: Instagram, t: "Instagram", d: "@adrespilates", href: "https://instagram.com/adrespilates" },
-                { icon: Award, t: "Eğitim ortağı", d: "@codepilates", href: "https://instagram.com/codepilates" },
+                { icon: MapPin, t: "Konum", d: "Nişantaşı, İstanbul (genel konum)" },
+                { icon: Instagram, t: "Sosyal medya", d: "@aurapilates.demo" },
+                { icon: Award, t: "E-posta", d: "info@aurapilates.example", href: "mailto:info@aurapilates.example" },
+                { icon: Phone, t: "Telefon", d: "+90 555 000 00 00", href: "tel:+905550000000" },
               ].map(({ icon: Icon, t, d, href }) => (
                 <li key={t} className="flex items-center gap-4 rounded-2xl border border-ink-foreground/10 bg-ink-foreground/5 p-5">
                   <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
@@ -340,7 +355,7 @@ export function ContactSection() {
                   <div className="min-w-0">
                     <p className="text-sm text-ink-foreground/60">{t}</p>
                     {href ? (
-                      <a href={href} target="_blank" rel="noreferrer" className="font-semibold hover:text-sand">{d}</a>
+                      <a href={href} className="font-semibold hover:text-sand">{d}</a>
                     ) : (
                       <p className="font-semibold">{d}</p>
                     )}
@@ -359,7 +374,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border py-10">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 text-sm text-muted-foreground sm:flex-row lg:px-8">
-        <p>© {new Date().getFullYear()} Adres Pilates · Kübra Çay</p>
+        <p>© {new Date().getFullYear()} Aura Pilates · Selin Yılmaz</p>
         <p>Reformer · Mat · Trapeze Table Eğitimleri</p>
         <Link to="/admin" className="transition-colors hover:text-primary">Yönetim Paneli</Link>
       </div>

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { applicationSchema } from "@/lib/application-schema";
 
-const valid = { full_name: "Ayşe Yılmaz", phone: "0532 123 45 67", course: "MAT 1 · 20–21–22 Kasım 2026", notes: "" };
+const valid = { full_name: "Demo Katılımcı", phone: "+90 555 000 00 00", course: "MAT 1 · 20–21–22 Kasım 2026", notes: "" };
 
 describe("application form rules", () => {
   it("accepts a complete application", () => {

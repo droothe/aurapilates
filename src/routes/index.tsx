@@ -11,9 +11,9 @@ export const trainingsQuery = queryOptions({
   queryFn: () => listTrainings(),
 });
 
-const title = "Adres Pilates | Kübra Çay — Pilates Eğitmenlik Eğitimleri İstanbul";
+const title = "Aura Pilates — Profesyonel Pilates Eğitmenlik Akademisi";
 const description =
-  "Kübra Çay öncülüğünde Mat, Reformer ve Trapeze Table eğitmenlik eğitimleri. İstanbul eğitim takvimi, ders paketleri ve online ön kayıt.";
+  "Aura Pilates — Profesyonel Pilates Eğitmenlik Akademisi. Mat, Reformer ve Trapeze Table programları.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -22,7 +22,10 @@ export const Route = createFileRoute("/")({
       { name: "description", content: description },
       { property: "og:title", content: title },
       { property: "og:description", content: description },
+      { property: "og:site_name", content: "Aura Pilates" },
       { property: "og:type", content: "website" },
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),

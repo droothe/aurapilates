@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-/** Location pin with a pilates "teaser" figure inside — mirrors the Adres Pilates mark. */
+/** Location pin with a pilates "teaser" figure inside. */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 48 56" fill="none" aria-hidden="true" className={cn("text-primary", className)}>
@@ -29,10 +29,10 @@ export function Logo({ className }: { className?: string }) {
       <LogoMark className="h-9 w-8 shrink-0" />
       <span className="flex min-w-0 flex-col leading-none">
         <span className="truncate font-display text-xl font-semibold tracking-tight text-foreground">
-          Adres Pilates
+          Aura Pilates
         </span>
         <span className="mt-1 truncate text-[0.62rem] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
-          Kübra Çay · Master Trainer
+          SELİN YILMAZ · MASTER TRAINER
         </span>
       </span>
     </span>
